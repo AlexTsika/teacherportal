@@ -18,7 +18,10 @@ use App\Http\Controllers\TeacherController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $teachers = Teacher::all();
+    $locations = Location::all();
+    $categories = Category::all();
+    return view('home', compact('teachers', 'locations', 'categories'));
 })->name('home');
 
 Route::group(['prefix' => 'admin'], function () {
