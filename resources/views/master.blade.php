@@ -19,18 +19,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about">About us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/faq">FAQ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact us</a>
-              </li>
+              <li class="nav-item"><a class="{{Request::path() === '/' ? 'nav-link active active' : 'nav-link' }}" href="/">Home</a></li>
+              <li class="nav-item"><a class="{{Request::path() === 'about' ? 'nav-link active active' : 'nav-link' }}" href="/about">About us</a></li>
+              <li class="nav-item"><a class="{{Request::path() === 'faq' ? 'nav-link active active' : 'nav-link' }}" href="/faq">FAQ</a></li>
+              <li class="nav-item"><a class="{{Request::path() === 'contact' ? 'nav-link active active' : 'nav-link' }}" href="/contact">Contact us</a></li>
             </ul>
             <a class="nav-link" href="/login"><button class="btn btn-outline-primary">Log in</button></a>
             <span class="me-3"></span>
