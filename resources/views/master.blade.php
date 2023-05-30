@@ -20,7 +20,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Route</a>
@@ -40,7 +40,7 @@
             </ul>
             <button class="btn btn-outline-primary">Log in</button>
             <span class="me-3"></span>
-            <button class="btn btn-outline-primary">Sign up</button>
+            <a class="nav-link" href="/register"><button class="btn btn-outline-primary">Sign up</button></a>
           </div>
         </div>
       </nav>
