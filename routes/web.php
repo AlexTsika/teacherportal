@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,5 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+Route::get('/', [TeacherController::class, 'index'])->name('home');
