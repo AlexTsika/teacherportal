@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -20,11 +21,12 @@ class LoginController extends Controller
         ]);
 
         // Perform authentication logic here (e.g., check credentials against the database)
-
-        // If authentication is successful, redirect to the desired page
-        return redirect()->route('home')->with('success', 'Login successful!');
-
-        // If authentication fails, redirect back to the login form with an error message
-        return redirect()->back()->withErrors(['email' => 'Invalid credentials.']);
+        if (Auth::attempt($request->only('email', 'password'))) {
+            // Authentication successful
+            return redirect()->route('home')->with('success', 'Login successful!');
+        } else {
+            // Authentication failed
+            return redirect()->back()->withErrors(['email' => 'Invalid credentials.']);
+        }
     }
 }
