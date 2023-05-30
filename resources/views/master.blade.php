@@ -23,22 +23,16 @@
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Route</a>
+                <a class="nav-link" href="/about">About us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Route</a>
+                <a class="nav-link" href="/faq">FAQ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Route</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Route</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Route</a>
+                <a class="nav-link" href="/contact">Contact us</a>
               </li>
             </ul>
-            <button class="btn btn-outline-primary">Log in</button>
+            <a class="nav-link" href="/login"><button class="btn btn-outline-primary">Log in</button></a>
             <span class="me-3"></span>
             <a class="nav-link" href="/register"><button class="btn btn-outline-primary">Sign up</button></a>
           </div>
