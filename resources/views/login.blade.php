@@ -6,6 +6,13 @@
 
     <div class="row justify-content-center">
         <div class="col-md-4">
+
+            @if ($errors->has('email'))
+                <div class="alert alert-danger">
+                    {{ $errors->first('email') }}
+                </div>
+            @endif
+
             <form action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="form-group mb-3">
