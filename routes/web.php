@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,15 +25,22 @@ Route::get('/', function () {
     return view('home', compact('teachers', 'locations', 'categories'));
 })->name('home');
 
+Route::get('/', [TeacherController::class, 'index'])->name('home');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('/register', [UserController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [UserController::class, 'register']);
+Route::get('/register', [RegistrationController::class, 'create'])->name('register');
+Route::post('/register', [RegistrationController::class, 'store']);
 
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
+// Route::get('/register', [UserController::class, 'showRegistrationForm'])->name('register');
+// Route::post('/register', [UserController::class, 'register']);
+
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [LoginController::class, 'login']);
+
+// Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('/about', function () {
     return view('about');
@@ -45,7 +53,3 @@ Route::get('/faq', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
-
-Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
-
-Route::get('/', [TeacherController::class, 'index'])->name('home');

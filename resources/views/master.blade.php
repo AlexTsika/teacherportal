@@ -25,7 +25,7 @@
               <li class="nav-item"><a class="{{Request::path() === 'contact' ? 'nav-link active active' : 'nav-link' }}" href="/contact">Contact us</a></li>
             </ul>
 
-            @auth
+            {{-- @auth
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-outline-primary">Logout</button>
@@ -34,8 +34,9 @@
                 <a class="nav-link" href="/login"><button class="btn btn-outline-primary">Log in</button></a>
                 <span class="me-3"></span>
                 <a class="nav-link" href="/register"><button class="btn btn-outline-primary">Sign up</button></a>
-            @endauth
-                    
+            @endauth --}}
+               
+            <a class="nav-link" href="/register"><button class="btn btn-outline-primary">Sign up</button></a>
         </div>
         </div>
       </nav>
