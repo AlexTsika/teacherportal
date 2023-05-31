@@ -1,0 +1,15 @@
+/* Set the border color and text color for a primary button */
+.btn-outline-primary {
+    border-color: #e62f2c;
+    color: #e62f2c;
+}
+
+/* Set the background color, border color, and text color for a primary button on hover */
+.btn-outline-primary:hover {
+    background-color: #e62f2c;
+    border-color: #e62f2c;
+}
+
+.bg-primary {
+    background-color: #e62f2c !important;
+}

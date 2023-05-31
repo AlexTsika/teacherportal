@@ -2,28 +2,43 @@
 
 @section('content')
 
+{{-- title --}}
 <h1 class="text-center mt-5 mb-5">Welcome, motherfucker!</h1>
 
 <div class="row justify-content-center mb-5">
     <div class="col-md-10">
+        {{-- succes message --}}
         @if (session('success'))
             <div class="alert alert-success text-center">
                 {{ session('success') }}
             </div>
         @endif
+        {{-- validation errors --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 </div>
 
+{{-- map section --}}
 <div class="row justify-content-center mb-5">
     <div class="col-md-10">
-        <h2 class="text-center bg-success p-5 rounded fw-bold">MAP GOES HERE</h2>
+        <h2 class="text-center bg-primary p-5 rounded fw-bold">MAP GOES HERE</h2>
     </div>
 </div>
 
+{{-- search functions --}}
 <div class="row justify-content-center">
     <div class="col-md-10">
         <div class="row justify-content-center mb-5">
             <div class="col-md-4">
+                {{-- search name --}}
                 <form action="/search" method="GET">
                     <label class="mb-1" for="search_name">Search name</label>
                     <input class="form-control mb-1" type="search" name="search_name" placeholder="Search name">
@@ -31,6 +46,7 @@
                 </form>
             </div>
             <div class="col-md-4">
+                {{-- search category --}}
                 <form action="/category" method="GET">
                     <div class="form-group">
                         <label class="mb-1" for="category_id">Search category</label>
@@ -69,6 +85,7 @@
                 </form>
             </div>
             <div class="col-md-4">
+                {{-- search location --}}
                 <form action="/location" method="GET">
                     <div class="form-group">
                         <label class="mb-1" for="location_id">Search Location</label>
@@ -88,6 +105,7 @@
     </div>
 </div>
     
+{{-- teacher cards --}}
 <div class="row justify-content-center">
     <div class="col-md-10">
 
