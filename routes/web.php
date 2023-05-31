@@ -1,11 +1,15 @@
 <?php
 
+use App\Models\Location;
+use App\Models\Teacher;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\RegistrationController;
+use TCG\Voyager\Facades\Voyager;
 
 /*
 |--------------------------------------------------------------------------
