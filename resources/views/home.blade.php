@@ -3,7 +3,11 @@
 @section('content')
 
 {{-- title --}}
-<h1 class="text-center mt-5 mb-5">Welcome, motherfucker!</h1>
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-md-10 bg-light p-5 rounded">
+        <h1 class="text-center">Welcome, motherfucker!</h1>
+    </div>
+</div>
 
 <div class="row justify-content-center mb-5">
     <div class="col-md-10">
@@ -29,14 +33,14 @@
 {{-- map section --}}
 <div class="row justify-content-center mb-5">
     <div class="col-md-10">
-        <h2 class="text-center bg-primary p-5 rounded fw-bold">MAP GOES HERE</h2>
+        <h2 class="text-center bg-primary p-5 rounded fw-bold text-light">MAP GOES HERE</h2>
     </div>
 </div>
 
 {{-- search functions --}}
-<div class="row justify-content-center">
+<div class="row justify-content-center bg-light p-5">
     <div class="col-md-10">
-        <div class="row justify-content-center mb-5">
+        <div class="row justify-content-center">
             <div class="col-md-4">
                 {{-- search name --}}
                 <form action="/search" method="GET">
@@ -106,7 +110,7 @@
 </div>
     
 {{-- teacher cards --}}
-<div class="row justify-content-center">
+<div class="row justify-content-center bg-light p-5">
     <div class="col-md-10">
 
         <div class="row justify-content-center">

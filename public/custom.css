@@ -13,3 +13,8 @@
 .bg-primary {
     background-color: #e62f2c !important;
 }
+
+/* custom font color */
+.text-custom {
+    color: #e62f2c !important;
+}

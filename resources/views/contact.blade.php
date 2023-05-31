@@ -2,10 +2,9 @@
 
 @section('content')
 
-<h1 class="text-center mt-5 mb-5">Contact Us</h1>
-
-<div class="row justify-content-center">
-    <div class="col-md-4">
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-md-4 bg-light p-5 rounded">
+        <h1 class="text-center">Contact Us</h1>
 
         <form action="{{ route('register') }}" method="POST">
             @csrf

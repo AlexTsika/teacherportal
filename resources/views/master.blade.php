@@ -9,13 +9,13 @@
     {{-- custom css --}}
     <link rel="stylesheet" href="{{ asset('custom.css') }}">
   </head>
-  <body>
+  <body class="bg-dark">
 
     {{-- navbar --}}
-    <nav class="navbar navbar-expand-lg bg-body-info">
+    <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="./images/logo.png" alt="logo" height="35" width="auto">
+                <img src="./images/logo.png" alt="logo" height="61" width="auto">
             </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,13 +45,17 @@
       </nav>
       {{-- end navbar --}}
 
-    <div class="container-fluid" style="min-height: 100vh;">
+    <div class="container-fluid" >
         @yield('content')
     </div>
 
     {{-- footer --}}
-    <div class="container-fluid justify-content-center">
-      <p class="text-muted text-center">© 2023 SyntraPXL</p>
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <p class="text-light text-center p-3">© {{ date('Y') }} SyntraPXL</p>
+        </div>
+      </div>
     </div>
     {{-- end footer --}}
 
