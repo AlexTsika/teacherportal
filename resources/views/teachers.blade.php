@@ -32,8 +32,8 @@
 
 {{-- map section --}}
 <div class="row justify-content-center mb-5">
-    <div class="col-md-10">
-        <h2 class="text-center bg-primary p-5 rounded fw-bold text-light">MAP GOES HERE</h2>
+    <div class="col-md-10 bg-primary p-5 rounded">
+        <h2 class="text-center fw-bold text-light">MAP GOES HERE</h2>
     </div>
 </div>
 
