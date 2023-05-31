@@ -13,4 +13,36 @@ class TeacherController extends Controller
 
         return view('home', compact('teachers'));
     }
+
+    public function search(Request $request)
+    {
+        $searchName = $request->input('search_name');
+        $teachers = Teacher::query()
+            ->where('firstname', 'like', '%' . $searchName . '%')
+            ->orWhere('lastname', 'like', '%' . $searchName . '%')
+            ->get();
+
+        return view('teachers', compact('teachers'));
+    }
+
+    public function searchByCategory(Request $request)
+    {
+        $categoryId = $request->query('category_id');
+        $teachers = Teacher::whereHas('category', function ($query) use ($categoryId) {
+            $query->where('id', $categoryId);
+        })->get();
+
+        return view('teachers', compact('teachers'));
+    }
+
+    public function searchByLocation(Request $request)
+    {
+        $locationId = $request->query('location_id');
+        $teachers = Teacher::whereHas('location', function ($query) use ($locationId) {
+            $query->where('id', $locationId);
+        })->get();
+
+        return view('teachers', compact('teachers'));
+    }
+        
 }

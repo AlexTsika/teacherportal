@@ -27,6 +27,10 @@ Route::get('/', function () {
 
 Route::get('/', [TeacherController::class, 'index'])->name('home');
 
+Route::get('/search', [TeacherController::class, 'search']);
+Route::get('/category', [TeacherController::class, 'searchByCategory']);
+Route::get('/location', [TeacherController::class, 'searchByLocation']);
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
