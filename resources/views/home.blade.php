@@ -19,6 +19,68 @@
         <h2 class="text-center bg-success p-5 rounded fw-bold">MAP GOES HERE</h2>
     </div>
 </div>
+
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-4">
+                <label class="mb-1" for="category_id">Search name</label>
+                <input class="form-control mb-1" type="search" placeholder="Search name">
+                <button class="btn btn-outline-primary" type="submit">Submit</button>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="mb-1" for="category_id">Search category</label>
+                    <select class="form-control mb-1" id="category_id" name="category_id" required>
+                        <option value="">Select a category</option>
+                        <!-- options for categories -->
+                        <option value="1">Administratie en onthaal</option>
+                        <option value="2">Beauty en wellness</option>
+                        <option value="3">Bouw</option>
+                        <option value="4">Dieren</option>
+                        <option value="5">Drones</option>
+                        <option value="6">Elektro en techniek</option>
+                        <option value="7">Energie en HVAC</option>
+                        <option value="8">Financiën</option>
+                        <option value="9">Grafische en multimedia</option>
+                        <option value="10">Groenvoorziening</option>
+                        <option value="11">Horeca en voeding</option>
+                        <option value="12">Informatica</option>
+                        <option value="13">Interieur en ontwerpen</option>
+                        <option value="14">Kunst, antiek en creatief design</option>
+                        <option value="15">Management</option>
+                        <option value="16">Mode en kledij</option>
+                        <option value="17">Safety</option>
+                        <option value="18">Sales, marketing en communicatie</option>
+                        <option value="19">Sport</option>
+                        <option value="20">Starten met ondernemen</option>
+                        <option value="21">Talen en redactie</option>
+                        <option value="22">Toerisme</option>
+                        <option value="23">Transport en logistiek</option>
+                        <option value="24">Vastgoed</option>
+                        <option value="25">Voertuigen en metaal</option>
+                        <option value="26">Zorgverlening</option>
+                    </select>
+                </div>
+                <button class="btn btn-outline-primary" type="submit">Submit</button>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="mb-1" for="location_id">Search Location</label>
+                    <select class="form-control mb-1" id="location_id" name="location_id" required>
+                        <option value="">Select a location</option>
+                        <!-- options for locations -->
+                        <option value="1">SyntraPXL T2 Campus Genk</option>
+                        <option value="2">SyntraPXL Neerpelt</option>
+                        <option value="3">SyntraPXL Hasselt</option>
+                        <option value="4">SyntraPXL Maaseik</option>
+                    </select>
+                </div>
+                <button class="btn btn-outline-primary" type="submit">Submit</button>
+            </div>
+        </div>        
+    </div>
+</div>
     
 <div class="row justify-content-center">
     <div class="col-md-10">
