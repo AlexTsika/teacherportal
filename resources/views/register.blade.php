@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <h2 class="text-center mt-5 mb-5">Teacher Registration</h2>
+    <div class="row justify-content-center mt-5 mb-5">
+        <div class="col-md-4 bg-light p-5 rounded">
+            <h2 class="text-center">Teacher Registration</h2>
 
-    <div class="row justify-content-center">
-        <div class="col-md-4">
             @if (session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
