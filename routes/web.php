@@ -3,6 +3,7 @@
 use App\Models\Location;
 use App\Models\Teacher;
 use App\Models\Category;
+use App\Mail\SendEmail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -10,6 +11,8 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\RegistrationController;
 use TCG\Voyager\Facades\Voyager;
+use Illuminate\Support\Facades\Mail;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -66,3 +69,11 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::get('/teachercontact/{id}', [TeacherController::class, 'contact'])->name('teachercontact');
+
+Route::get('/send-email/{id}', function ($id) {
+    $teacher = Teacher::find($id); // Retrieve the user from the database
+
+    Mail::to($teacher->email)->send(new SendEmail($teacher, $id));
+
+    dd('Mail sent!');
+});
