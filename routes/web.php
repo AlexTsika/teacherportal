@@ -57,3 +57,5 @@ Route::get('/faq', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+Route::get('/teachercontact/{id}', [TeacherController::class, 'contact'])->name('teachercontact');

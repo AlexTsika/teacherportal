@@ -44,5 +44,14 @@ class TeacherController extends Controller
 
         return view('home', compact('teachers'));
     }
-        
+
+    public function contact($id)
+    {
+        $teacher = Teacher::findOrFail($id);
+        $email = $teacher->email;
+
+        // Pass the email and teacher to the view and display the teachercontact.blade.php
+        return view('teachercontact', compact('email', 'teacher'));
+    }
+
 }

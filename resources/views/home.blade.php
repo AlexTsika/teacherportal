@@ -39,19 +39,19 @@
 <div class="row justify-content-center bg-light p-5">
     <div class="col-md-10">
         <div class="row justify-content-center">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 {{-- search name --}}
                 <form action="/search" method="GET">
-                    <label class="mb-1 fw-bold" for="search_name">Search teacher name</label>
+                    <label class="mb-1 fw-bold" for="search_name">Search Teacher Name</label>
                     <input class="form-control mb-1" type="search" name="search_name" placeholder="Search teacher name">
                     <button class="btn btn-outline-primary" type="submit">Submit</button>
                 </form>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 {{-- search category --}}
                 <form action="/category" method="GET">
                     <div class="form-group">
-                        <label class="mb-1 fw-bold" for="category_id">Search teacher category</label>
+                        <label class="mb-1 fw-bold" for="category_id">Select Teacher Category</label>
                         <select class="form-control mb-1" id="category_id" name="category_id" required>
                             <option value="">Select a teacher category</option>
                             <!-- options for categories -->
@@ -86,16 +86,24 @@
                     <button class="btn btn-outline-primary" type="submit">Submit</button>
                 </form>
             </div>
-            <div class="col-md-4">
-                {{-- search location --}}
+            <div class="col-md-3">
+                {{-- search teacher location --}}
+                <form action="/search" method="GET">
+                    <label class="mb-1 fw-bold" for="search_name">Search Teacher Location</label>
+                    <input class="form-control mb-1" type="search" name="search_name" placeholder="Search teacher location">
+                    <button class="btn btn-outline-primary" type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="col-md-3">
+                {{-- search campus location --}}
                 <form action="/location" method="GET">
                     <div class="form-group">
-                        <label class="mb-1 fw-bold" for="location_id">Search teacher location</label>
+                        <label class="mb-1 fw-bold" for="location_id">Select Campus Location</label>
                         <select class="form-control mb-1" id="location_id" name="location_id" required>
-                            <option value="">Select a teacher location</option>
+                            <option value="">Select a campus location</option>
                             <!-- options for locations -->
                             <option value="1">SyntraPXL T2 Campus Genk</option>
-                            <option value="2">SyntraPXL Neerpelt</option>
+                            <option value="2">SyntraPXL Pelt</option>
                             <option value="3">SyntraPXL Hasselt</option>
                             <option value="4">SyntraPXL Maaseik</option>
                         </select>
@@ -132,6 +140,16 @@
                             @else
                                 <h6 class="card-subtitle mb-3 text-muted">No location assigned</h6>
                             @endif
+
+                            @if (!empty($teacher->codecity))
+                                @php
+                                    $cityParts = explode(' ', $teacher->codecity);
+                                    $city = (count($cityParts) > 1) ? end($cityParts) : 'No city assigned';
+                                @endphp
+                                <p class="card-text mb-1">From <span class="text-uppercase">{{ $city }}</span></p>
+                            @else
+                                <p class="card-text mb-1 text-muted">No city assigned</p>
+                            @endif
             
                             @if (!empty($teacher->website))
                                 <p class="card-text mb-1"><a href="{{ $teacher->website }}">{{ $teacher->website }}</a></p>
@@ -151,7 +169,7 @@
                                 <p class="card-text mb-1 text-muted">No remarks given</p>
                             @endif
             
-                            <a href="#" target="_blank" class="btn btn-outline-primary">Contact</a>
+                            <a href="{{ route('teachercontact', ['id' => $teacher->id]) }}" class="btn btn-outline-primary">Contact</a>
                             
                         </div>
                     </div>
