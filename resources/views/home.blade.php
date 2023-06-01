@@ -88,15 +88,15 @@
             </div>
             <div class="col-md-3">
                 {{-- search teacher location --}}
-                <form action="/search" method="GET">
-                    <label class="mb-1 fw-bold" for="search_name">Search Teacher Location</label>
-                    <input class="form-control mb-1" type="search" name="search_name" placeholder="Search teacher location">
+                <form action="/teacherlocation" method="GET">
+                    <label class="mb-1 fw-bold" for="search_location">Search Teacher Location</label>
+                    <input class="form-control mb-1" type="search" name="search_location" placeholder="Search teacher location">
                     <button class="btn btn-outline-primary" type="submit">Submit</button>
                 </form>
             </div>
             <div class="col-md-3">
                 {{-- search campus location --}}
-                <form action="/location" method="GET">
+                <form action="/campuslocation" method="GET">
                     <div class="form-group">
                         <label class="mb-1 fw-bold" for="location_id">Select Campus Location</label>
                         <select class="form-control mb-1" id="location_id" name="location_id" required>
