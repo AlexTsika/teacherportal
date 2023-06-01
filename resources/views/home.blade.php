@@ -35,14 +35,6 @@
     </div>
 @endif
 
-{{-- map section --}}
-<div class="row justify-content-center mb-5">
-    <div class="col-md-10 bg-light p-5 rounded">
-        <h2 class="text-center mb-5">SyntraPXL Locations Limburg</h2>
-        <div id="map" style="height: 50vh;" class="rounded"></div>
-    </div>
-</div>
-
 {{-- search functions --}}
 <div class="row justify-content-center bg-light p-5">
     <div class="col-md-10">
@@ -50,8 +42,8 @@
             <div class="col-md-4">
                 {{-- search name --}}
                 <form action="/search" method="GET">
-                    <label class="mb-1" for="search_name">Search name</label>
-                    <input class="form-control mb-1" type="search" name="search_name" placeholder="Search name">
+                    <label class="mb-1 fw-bold" for="search_name">Search teacher name</label>
+                    <input class="form-control mb-1" type="search" name="search_name" placeholder="Search teacher name">
                     <button class="btn btn-outline-primary" type="submit">Submit</button>
                 </form>
             </div>
@@ -59,9 +51,9 @@
                 {{-- search category --}}
                 <form action="/category" method="GET">
                     <div class="form-group">
-                        <label class="mb-1" for="category_id">Search category</label>
+                        <label class="mb-1 fw-bold" for="category_id">Search teacher category</label>
                         <select class="form-control mb-1" id="category_id" name="category_id" required>
-                            <option value="">Select a category</option>
+                            <option value="">Select a teacher category</option>
                             <!-- options for categories -->
                             <option value="1">Administratie en onthaal</option>
                             <option value="2">Beauty en wellness</option>
@@ -98,9 +90,9 @@
                 {{-- search location --}}
                 <form action="/location" method="GET">
                     <div class="form-group">
-                        <label class="mb-1" for="location_id">Search Location</label>
+                        <label class="mb-1 fw-bold" for="location_id">Search teacher location</label>
                         <select class="form-control mb-1" id="location_id" name="location_id" required>
-                            <option value="">Select a location</option>
+                            <option value="">Select a teacher location</option>
                             <!-- options for locations -->
                             <option value="1">SyntraPXL T2 Campus Genk</option>
                             <option value="2">SyntraPXL Neerpelt</option>
@@ -116,68 +108,111 @@
 </div>
     
 {{-- teacher cards --}}
-<div class="row justify-content-center bg-light p-5">
+<div class="row justify-content-center bg-light p-5 mb-5">
     <div class="col-md-10">
 
         <div class="row justify-content-center">
 
-            @foreach ($teachers as $teacher)
+            @forelse ($teachers as $teacher)
                 <div class="col-lg-4 mb-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-header bg-primary text-white text-shadow">
                             <h4 class="card-title">{{ $teacher->firstname }} {{ $teacher->lastname }}</h4>
-        
+                        </div>
+                        <div class="card-body">
+            
                             @if (!empty($teacher->category->name))
                                 <h5 class="card-subtitle mb-3">{{ $teacher->category->name }}</h5>
                             @else
                                 <h5 class="card-subtitle mb-3 text-muted">No category assigned</h5>
                             @endif
-        
+            
                             @if (!empty($teacher->location->name))
                                 <h6 class="card-subtitle mb-3">{{ $teacher->location->name }}</h6>
                             @else
                                 <h6 class="card-subtitle mb-3 text-muted">No location assigned</h6>
                             @endif
-        
+            
                             @if (!empty($teacher->website))
                                 <p class="card-text mb-1"><a href="{{ $teacher->website }}">{{ $teacher->website }}</a></p>
                             @else
                                 <p class="card-text mb-1 text-muted">No website assigned</p>
                             @endif
-        
+            
                             @if (!empty($teacher->description))
                                 <p class="card-text mb-1">{{ $teacher->description }}</p>
                             @else
                                 <p class="card-text mb-1 text-muted">No description given</p>
                             @endif
-        
+            
                             @if (!empty($teacher->remarks))
                                 <p class="card-text mb-1">{{ $teacher->remarks }}</p>
                             @else
                                 <p class="card-text mb-1 text-muted">No remarks given</p>
                             @endif
-                            
+            
                             <a href="#" target="_blank" class="btn btn-outline-primary">Contact</a>
+                            
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="col-md-10 text-center">
+                    <h5>No teachers found.</h5>
+                </div>
+            @endforelse
         
         </div>   
 
     </div>
 </div> 
+
+{{-- map section --}}
+<div class="row justify-content-center mb-5">
+    <div class="col-md-10 bg-light p-5 rounded">
+        <h2 class="text-center mb-5">SyntraPXL Locations Limburg</h2>
+        <div id="map" style="height: 60vh;" class="rounded"></div>
+    </div>
+</div>
      
 @endsection
 
 @push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var map = L.map('map').setView([50.9651, 5.5022], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        var marker = L.marker([50.9651, 5.5022]).addTo(map);
-    });
-</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var map = L.map('map').setView([51.1129, 5.5075], 10);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // SyntraPXL Campus Genk
+            var marker1 = L.marker([50.996677814315916, 5.536326957713524], { title: 'SyntraPXL Campus Genk' }).addTo(map);
+            // Redirect to location Genk when marker is clicked
+            marker1.on('click', function () {
+                window.location.href = '/location?location_id=1';
+            });
+            // SyntraPXL Campus Pelt
+            var marker2 = L.marker([51.22895210497301, 5.425274296941194], { title: 'SyntraPXL Campus Pelt' }).addTo(map);
+            // Redirect to location Pelt when marker is clicked
+            marker2.on('click', function () {
+                window.location.href = '/location?location_id=2';
+            });
+            // SyntraPXL Campus Hasselt
+            var marker3 = L.marker([50.93730964771964, 5.363997355864175], { title: 'SyntraPXL Campus Hasselt' }).addTo(map);
+            // Redirect to location Hasselt when marker is clicked
+            marker3.on('click', function () {
+                window.location.href = '/location?location_id=3';
+            });
+            // SyntraPXL Campus Maaseik
+            var marker4 = L.marker([51.10659669894506, 5.778770625193791], { title: 'SyntraPXL Campus Maaseik' }).addTo(map);
+            // Redirect to location Maaseik when marker is clicked
+            marker4.on('click', function () {
+                window.location.href = '/location?location_id=4';
+            });
+            
+            var bounds = L.latLngBounds([marker1.getLatLng(), marker2.getLatLng(), marker3.getLatLng(), marker4.getLatLng()]);
+            map.fitBounds(bounds);
+        });
+    </script>
 @endpush

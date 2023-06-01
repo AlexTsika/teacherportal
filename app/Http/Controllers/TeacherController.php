@@ -22,7 +22,7 @@ class TeacherController extends Controller
             ->orWhere('lastname', 'like', '%' . $searchName . '%')
             ->get();
 
-        return view('teachers', compact('teachers'));
+        return view('home', compact('teachers'));
     }
 
     public function searchByCategory(Request $request)
@@ -32,7 +32,7 @@ class TeacherController extends Controller
             $query->where('id', $categoryId);
         })->get();
 
-        return view('teachers', compact('teachers'));
+        return view('home', compact('teachers'));
     }
 
     public function searchByLocation(Request $request)
@@ -42,7 +42,7 @@ class TeacherController extends Controller
             $query->where('id', $locationId);
         })->get();
 
-        return view('teachers', compact('teachers'));
+        return view('home', compact('teachers'));
     }
         
 }
