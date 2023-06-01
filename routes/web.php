@@ -22,12 +22,12 @@ use TCG\Voyager\Facades\Voyager;
 |
 */
 
-Route::get('/', function () {
-    $teachers = Teacher::all();
-    $locations = Location::all();
-    $categories = Category::all();
-    return view('home', compact('teachers', 'locations', 'categories'));
-})->name('home');
+// Route::get('/', function () {
+//     $teachers = Teacher::all();
+//     $locations = Location::all();
+//     $categories = Category::all();
+//     return view('home', compact('teachers', 'locations', 'categories'));
+// })->name('home');
 
 Route::get('/', [TeacherController::class, 'index'])->name('home');
 
