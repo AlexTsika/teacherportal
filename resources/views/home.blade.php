@@ -144,13 +144,17 @@
                             @if (!empty($teacher->codecity))
                                 @php
                                     $cityParts = explode(' ', $teacher->codecity);
-                                    $city = (count($cityParts) > 1) ? end($cityParts) : 'No city assigned';
+                                    $city = (count($cityParts) > 1) ? implode(' ', array_slice($cityParts, 1)) : null;
                                 @endphp
-                                <p class="card-text mb-1">From <span class="text-uppercase">{{ $city }}</span></p>
+                                @if ($city)
+                                    <p class="card-text mb-1">From <span class="text-uppercase">{{ $city }}</span></p>
+                                @else
+                                    <p class="card-text mb-1 text-muted">No city assigned</p>
+                                @endif
                             @else
                                 <p class="card-text mb-1 text-muted">No city assigned</p>
                             @endif
-            
+                                 
                             @if (!empty($teacher->website))
                                 <p class="card-text mb-1"><a href="{{ $teacher->website }}">{{ $teacher->website }}</a></p>
                             @else
