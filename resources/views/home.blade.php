@@ -171,13 +171,25 @@
 @endsection
 
 @push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var map = L.map('map').setView([50.9651, 5.5022], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        var marker = L.marker([50.9651, 5.5022]).addTo(map);
-    });
-</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var map = L.map('map').setView([51.1129, 5.5075], 10);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // SyntraPXL Campus Genk
+            var marker1 = L.marker([50.996677814315916, 5.536326957713524]).addTo(map);
+            // SyntraPXL Campus Pelt
+            var marker2 = L.marker([51.22895210497301, 5.425274296941194]).addTo(map);
+            // SyntraPXL Campus Maaseik
+            var marker3 = L.marker([51.10659669894506, 5.778770625193791]).addTo(map);
+            // SyntraPXL Campus Hasselt
+            var marker4 = L.marker([50.93730964771964, 5.363997355864175], { title: 'SyntraPXL Campus Hasselt' }).addTo(map);
+            
+            var bounds = L.latLngBounds([marker1.getLatLng(), marker2.getLatLng(), marker3.getLatLng(), marker4.getLatLng()]);
+            map.fitBounds(bounds);
+        });
+    </script>
 @endpush
