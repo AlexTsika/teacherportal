@@ -35,14 +35,6 @@
     </div>
 @endif
 
-{{-- map section --}}
-<div class="row justify-content-center mb-5">
-    <div class="col-md-10 bg-light p-5 rounded">
-        <h2 class="text-center mb-5">SyntraPXL Locations Limburg</h2>
-        <div id="map" style="height: 60vh;" class="rounded"></div>
-    </div>
-</div>
-
 {{-- search functions --}}
 <div class="row justify-content-center bg-light p-5">
     <div class="col-md-10">
@@ -116,7 +108,7 @@
 </div>
     
 {{-- teacher cards --}}
-<div class="row justify-content-center bg-light p-5">
+<div class="row justify-content-center bg-light p-5 mb-5">
     <div class="col-md-10">
 
         <div class="row justify-content-center">
@@ -171,6 +163,14 @@
 
     </div>
 </div> 
+
+{{-- map section --}}
+<div class="row justify-content-center mb-5">
+    <div class="col-md-10 bg-light p-5 rounded">
+        <h2 class="text-center mb-5">SyntraPXL Locations Limburg</h2>
+        <div id="map" style="height: 60vh;" class="rounded"></div>
+    </div>
+</div>
      
 @endsection
 
