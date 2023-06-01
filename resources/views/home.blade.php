@@ -39,7 +39,7 @@
 <div class="row justify-content-center mb-5">
     <div class="col-md-10 bg-light p-5 rounded">
         <h2 class="text-center mb-5">SyntraPXL Locations Limburg</h2>
-        <div id="map" style="height: 50vh;" class="rounded"></div>
+        <div id="map" style="height: 60vh;" class="rounded"></div>
     </div>
 </div>
 
@@ -180,13 +180,29 @@
             }).addTo(map);
             
             // SyntraPXL Campus Genk
-            var marker1 = L.marker([50.996677814315916, 5.536326957713524]).addTo(map);
+            var marker1 = L.marker([50.996677814315916, 5.536326957713524], { title: 'SyntraPXL Campus Genk' }).addTo(map);
+            // Redirect to location Genk when marker is clicked
+            marker1.on('click', function () {
+                window.location.href = '/location?location_id=1';
+            });
             // SyntraPXL Campus Pelt
-            var marker2 = L.marker([51.22895210497301, 5.425274296941194]).addTo(map);
-            // SyntraPXL Campus Maaseik
-            var marker3 = L.marker([51.10659669894506, 5.778770625193791]).addTo(map);
+            var marker2 = L.marker([51.22895210497301, 5.425274296941194], { title: 'SyntraPXL Campus Pelt' }).addTo(map);
+            // Redirect to location Pelt when marker is clicked
+            marker2.on('click', function () {
+                window.location.href = '/location?location_id=2';
+            });
             // SyntraPXL Campus Hasselt
-            var marker4 = L.marker([50.93730964771964, 5.363997355864175], { title: 'SyntraPXL Campus Hasselt' }).addTo(map);
+            var marker3 = L.marker([50.93730964771964, 5.363997355864175], { title: 'SyntraPXL Campus Hasselt' }).addTo(map);
+            // Redirect to location Hasselt when marker is clicked
+            marker3.on('click', function () {
+                window.location.href = '/location?location_id=3';
+            });
+            // SyntraPXL Campus Maaseik
+            var marker4 = L.marker([51.10659669894506, 5.778770625193791], { title: 'SyntraPXL Campus Maaseik' }).addTo(map);
+            // Redirect to location Maaseik when marker is clicked
+            marker4.on('click', function () {
+                window.location.href = '/location?location_id=4';
+            });
             
             var bounds = L.latLngBounds([marker1.getLatLng(), marker2.getLatLng(), marker3.getLatLng(), marker4.getLatLng()]);
             map.fitBounds(bounds);
