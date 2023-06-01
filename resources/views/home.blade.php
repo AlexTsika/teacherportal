@@ -116,8 +116,10 @@
             @forelse ($teachers as $teacher)
                 <div class="col-lg-4 mb-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-header bg-primary text-white text-shadow">
                             <h4 class="card-title">{{ $teacher->firstname }} {{ $teacher->lastname }}</h4>
+                        </div>
+                        <div class="card-body">
             
                             @if (!empty($teacher->category->name))
                                 <h5 class="card-subtitle mb-3">{{ $teacher->category->name }}</h5>
@@ -150,6 +152,7 @@
                             @endif
             
                             <a href="#" target="_blank" class="btn btn-outline-primary">Contact</a>
+                            
                         </div>
                     </div>
                 </div>
