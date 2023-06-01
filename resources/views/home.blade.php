@@ -212,25 +212,25 @@
             var marker1 = L.marker([50.996677814315916, 5.536326957713524], { title: 'SyntraPXL Campus Genk' }).addTo(map);
             // Redirect to location Genk when marker is clicked
             marker1.on('click', function () {
-                window.location.href = '/location?location_id=1';
+                window.location.href = '/campuslocation?location_id=1';
             });
             // SyntraPXL Campus Pelt
             var marker2 = L.marker([51.22895210497301, 5.425274296941194], { title: 'SyntraPXL Campus Pelt' }).addTo(map);
             // Redirect to location Pelt when marker is clicked
             marker2.on('click', function () {
-                window.location.href = '/location?location_id=2';
+                window.location.href = '/campuslocation?location_id=2';
             });
             // SyntraPXL Campus Hasselt
             var marker3 = L.marker([50.93730964771964, 5.363997355864175], { title: 'SyntraPXL Campus Hasselt' }).addTo(map);
             // Redirect to location Hasselt when marker is clicked
             marker3.on('click', function () {
-                window.location.href = '/location?location_id=3';
+                window.location.href = '/campuslocation?location_id=3';
             });
             // SyntraPXL Campus Maaseik
             var marker4 = L.marker([51.10659669894506, 5.778770625193791], { title: 'SyntraPXL Campus Maaseik' }).addTo(map);
             // Redirect to location Maaseik when marker is clicked
             marker4.on('click', function () {
-                window.location.href = '/location?location_id=4';
+                window.location.href = '/campuslocation?location_id=4';
             });
             
             var bounds = L.latLngBounds([marker1.getLatLng(), marker2.getLatLng(), marker3.getLatLng(), marker4.getLatLng()]);
