@@ -42,8 +42,8 @@
             <div class="col-md-4">
                 {{-- search name --}}
                 <form action="/search" method="GET">
-                    <label class="mb-1" for="search_name">Search name</label>
-                    <input class="form-control mb-1" type="search" name="search_name" placeholder="Search name">
+                    <label class="mb-1 fw-bold" for="search_name">Search teacher name</label>
+                    <input class="form-control mb-1" type="search" name="search_name" placeholder="Search teacher name">
                     <button class="btn btn-outline-primary" type="submit">Submit</button>
                 </form>
             </div>
@@ -51,9 +51,9 @@
                 {{-- search category --}}
                 <form action="/category" method="GET">
                     <div class="form-group">
-                        <label class="mb-1" for="category_id">Search category</label>
+                        <label class="mb-1 fw-bold" for="category_id">Search teacher category</label>
                         <select class="form-control mb-1" id="category_id" name="category_id" required>
-                            <option value="">Select a category</option>
+                            <option value="">Select a teacher category</option>
                             <!-- options for categories -->
                             <option value="1">Administratie en onthaal</option>
                             <option value="2">Beauty en wellness</option>
@@ -90,9 +90,9 @@
                 {{-- search location --}}
                 <form action="/location" method="GET">
                     <div class="form-group">
-                        <label class="mb-1" for="location_id">Search Location</label>
+                        <label class="mb-1 fw-bold" for="location_id">Search teacher location</label>
                         <select class="form-control mb-1" id="location_id" name="location_id" required>
-                            <option value="">Select a location</option>
+                            <option value="">Select a teacher location</option>
                             <!-- options for locations -->
                             <option value="1">SyntraPXL T2 Campus Genk</option>
                             <option value="2">SyntraPXL Neerpelt</option>
