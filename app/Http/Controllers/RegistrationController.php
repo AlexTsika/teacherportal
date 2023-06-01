@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class RegistrationController extends Controller
 {
@@ -63,6 +64,12 @@ class RegistrationController extends Controller
         $teacher->approved = $validatedData['approved'];
 
         $teacher->save();
+
+        $teacher = Teacher::latest()->firstOrFail();
+
+        Mail::raw('New teacher entry from ' . $teacher->firstname . ' ' . $teacher->lastname . ' waiting for approval!', function ($message) {
+            $message->to('rem@msn.com')->subject('New teacher entry waiting for approval!');
+        });
 
         return redirect()->route('home')->with('success', 'Registration successful! You will be notified once your registration is approved.');
     }
