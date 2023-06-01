@@ -35,7 +35,7 @@ class TeacherController extends Controller
         return view('home', compact('teachers'));
     }
 
-    public function searchByLocation(Request $request)
+    public function searchByCampusLocation(Request $request)
     {
         $locationId = $request->query('location_id');
         $teachers = Teacher::whereHas('location', function ($query) use ($locationId) {
@@ -44,5 +44,25 @@ class TeacherController extends Controller
 
         return view('home', compact('teachers'));
     }
-        
+
+    public function searchByTeacherLocation(Request $request)
+    {
+        $searchLocation = $request->input('search_location');
+        $teachers = Teacher::query()
+            ->where('streetnr', 'like', '%' . $searchLocation . '%')
+            ->orWhere('codecity', 'like', '%' . $searchLocation . '%')
+            ->get();
+
+        return view('home', compact('teachers'));
+    }
+
+    public function contact($id)
+    {
+        $teacher = Teacher::findOrFail($id);
+        $email = $teacher->email;
+
+        // Pass the email and teacher to the view and display the teachercontact.blade.php
+        return view('teachercontact', compact('email', 'teacher'));
+    }
+
 }

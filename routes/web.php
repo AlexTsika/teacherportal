@@ -33,7 +33,10 @@ Route::get('/', [TeacherController::class, 'index'])->name('home');
 
 Route::get('/search', [TeacherController::class, 'search']);
 Route::get('/category', [TeacherController::class, 'searchByCategory']);
-Route::get('/location', [TeacherController::class, 'searchByLocation']);
+Route::get('/campuslocation', [TeacherController::class, 'searchByCampusLocation']);
+Route::get('/teacherlocation', [TeacherController::class, 'searchByTeacherLocation']);
+
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
@@ -61,3 +64,5 @@ Route::get('/faq', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+Route::get('/teachercontact/{id}', [TeacherController::class, 'contact'])->name('teachercontact');

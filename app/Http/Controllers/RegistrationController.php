@@ -47,6 +47,8 @@ class RegistrationController extends Controller
             'description' => 'required',
             'category_id' => 'required',
             'location_id' => 'required',
+            'streetnr' => 'required',
+            'codecity' => 'required',
         ]);
 
         $validatedData['approved'] = 0;
@@ -62,6 +64,8 @@ class RegistrationController extends Controller
         $teacher->category_id = $validatedData['category_id'];
         $teacher->location_id = $validatedData['location_id'];
         $teacher->approved = $validatedData['approved'];
+        $teacher->streetnr = $validatedData['streetnr'];
+        $teacher->codecity = $validatedData['codecity'];
 
         $teacher->save();
 

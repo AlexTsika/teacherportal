@@ -41,6 +41,16 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="mb-1" for="streetnr">Street + Number</label>
+                    <input type="text" class="form-control mb-3" id="streetnr" name="streetnr" placeholder="Enter your street and number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="mb-1" for="codecity">Postal Code + City</label>
+                    <input type="text" class="form-control mb-3" id="codecity" name="codecity" placeholder="Enter your postal code and city" required>
+                </div>                
+
+                <div class="form-group">
                     <label class="mb-1" for="phone">Phone</label>
                     <input type="tel" class="form-control mb-3" id="phone" name="phone" placeholder="Enter your phone number" required>
                 </div>
@@ -100,7 +110,7 @@
                         <option value="">Select a location</option>
                         <!-- Add options for locations -->
                         <option value="1">SyntraPXL T2 Campus Genk</option>
-                        <option value="2">SyntraPXL Neerpelt</option>
+                        <option value="2">SyntraPXL Pelt</option>
                         <option value="3">SyntraPXL Hasselt</option>
                         <option value="4">SyntraPXL Maaseik</option>
                     </select>

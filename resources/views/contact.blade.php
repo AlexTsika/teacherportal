@@ -6,7 +6,7 @@
     <div class="col-md-4 bg-light p-5 rounded">
         <h1 class="text-center">Contact Us</h1>
 
-        <form action="{{ route('register') }}" method="POST">
+        <form action="" method="">
             @csrf
 
             <div class="form-group">
