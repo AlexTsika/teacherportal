@@ -4,21 +4,26 @@
 
 {{-- title --}}
 <div class="row justify-content-center mt-5 mb-5">
-    <div class="col-md-10 bg-light p-5 rounded">
-        <h1 class="text-center">Welcome, motherfucker!</h1>
+    <div class="col-md-10">
+        <h1 class="text-light text-shadow text-center">Welcome!</h1>
     </div>
 </div>
 
-<div class="row justify-content-center mb-5">
-    <div class="col-md-10">
-        {{-- succes message --}}
-        @if (session('success'))
+{{-- succes message --}}
+@if (session('success'))
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-10">
             <div class="alert alert-success text-center">
                 {{ session('success') }}
             </div>
-        @endif
-        {{-- validation errors --}}
-        @if ($errors->any())
+        </div>
+    </div>
+@endif
+
+{{-- validation errors --}}
+@if ($errors->any())
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-10">
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -26,14 +31,15 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+        </div>
     </div>
-</div>
+@endif
 
 {{-- map section --}}
 <div class="row justify-content-center mb-5">
-    <div class="col-md-10 bg-primary p-5 rounded">
-        <h2 class="text-center fw-bold text-light">MAP GOES HERE</h2>
+    <div class="col-md-10 bg-light p-5 rounded">
+        <h2 class="text-center mb-5">SyntraPXL Locations Limburg</h2>
+        <div id="map" style="height: 50vh;" class="rounded"></div>
     </div>
 </div>
 
@@ -163,3 +169,15 @@
 </div> 
      
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var map = L.map('map').setView([50.9651, 5.5022], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        var marker = L.marker([50.9651, 5.5022]).addTo(map);
+    });
+</script>
+@endpush
